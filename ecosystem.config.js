@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'ec2-3-90-15-31.compute-1.amazonaws.com',
+      host: 'ec2-52-207-233-17.compute-1.amazonaws.com',
       key: '~/.ssh/rippling_medicinals_key.pem',
       ref: 'origin/master',
       repo: 'https://github.com/conorGar/rippling_medicinals_backend.git',
