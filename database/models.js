@@ -1,11 +1,16 @@
 const { Sequelize } = require('sequelize')
 const bcrypt = require('bcrypt')
 
-const db = new Sequelize({
-    database: 'ripplingmedicinals_db',
-    dialect: 'postgres'
-  })
+// const db = new Sequelize({
+//     database: 'ripplingmedicinals_db',
+//     dialect: 'postgres'
+//   })
   
+let db;
+
+  db = new Sequelize(process.env.DATABASE_URL , {
+    dialect: 'postgres'
+  });
 
 const Admin = db.define('admin', {
     name:{
