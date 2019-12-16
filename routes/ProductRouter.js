@@ -32,7 +32,8 @@ ProductRouter.get('/:id', async (request, response) => {
 
 
   /********* CREATE -- localhost:PORT/ *********/
-ProductRouter.post('/create/product', async (request, response) => {
+ProductRouter.post('/create', async (request, response) => {
+    console.log("Got Here---- product post");
     try {
       const newProduct = await Product.create(request.body)
      
