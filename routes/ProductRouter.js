@@ -44,4 +44,21 @@ ProductRouter.post('/create', async (request, response) => {
     }
   })
 
+
+
+/********* DELETE -- localhost:PORT//2 *********/
+ProductRouter.delete('/:id', async (request, response) => {
+  try {
+    const id = request.params.id
+    const product = await Product.findByPk(id)
+    if (!product) throw Error
+    await product.destroy()
+    response.json({
+      message: `product with id ${id} deleted`
+    })
+  } catch (e) {
+    response.json({ msg: e.message })
+  }
+})
+
   module.exports = ProductRouter
