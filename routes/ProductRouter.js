@@ -45,6 +45,25 @@ ProductRouter.post('/create', async (request, response) => {
   })
 
 
+/********* UPDATE -- localhost:PORT//2 *********/
+ProductRouter.put('/:id', async (request, response) => {
+  try {
+    const id = request.params.id
+    const product = await Product.findByPk(id)
+    if (!product) throw Error
+   
+    await product.update(request.body)
+    response.json({
+      product
+    })
+  } catch (e) {
+    response.status(304).json({
+      message: e.message
+    })
+  }
+})
+
+
 
 /********* DELETE -- localhost:PORT//2 *********/
 ProductRouter.delete('/:id', async (request, response) => {
