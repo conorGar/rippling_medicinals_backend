@@ -13,6 +13,76 @@ ProductRouter.get('/', async (request, response) => {
       response.status(500).json({ msg: e.message })
     }
   })
+
+
+  //Get Teas
+  ProductRouter.get('/tea', async(req,res) => {
+
+    try{
+      const teaProducts = await Product.findAll({
+        where:{
+          type:"tea"
+        }
+      })
+      res.send(teaProducts)
+
+    }catch(e){
+      res.status(500).json({ msg: e.message })
+
+    }
+  })
+
+  //Get all Tinctures
+  ProductRouter.get('/tincture', async(req,res) => {
+
+    try{
+      const tinctureProducts = await Product.findAll({
+        where:{
+          type:["tincture-simple","tincture-formula"]
+        }
+      })
+      res.send(tinctureProducts)
+
+    }catch(e){
+      res.status(500).json({ msg: e.message })
+
+    }
+  })
+
+
+  //Get Simple Tinctures
+  ProductRouter.get('/tincture/simple', async(req,res) => {
+
+    try{
+      const tinctureProducts = await Product.findAll({
+        where:{
+          type:"tincture-simple"
+        }
+      })
+      res.send(tinctureProducts)
+
+    }catch(e){
+      res.status(500).json({ msg: e.message })
+
+    }
+  })
+
+   //Get Formula Tinctures
+   ProductRouter.get('/tincture/formula', async(req,res) => {
+
+    try{
+      const tinctureProducts = await Product.findAll({
+        where:{
+          type:"tincture-formula"
+        }
+      })
+      res.send(tinctureProducts)
+
+    }catch(e){
+      res.status(500).json({ msg: e.message })
+
+    }
+  })
   
 
 

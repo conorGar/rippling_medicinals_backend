@@ -54,6 +54,12 @@ const Product = db.define('product', {
     },
     ingredients:{
         type: Sequelize.STRING
+    },
+    type:{
+        type: Sequelize.STRING
+    },
+    price:{
+        type: Sequelize.INTEGER
     }
 })
 
